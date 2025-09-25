@@ -5,6 +5,11 @@ export interface Auth {
     user: User;
 }
 
+export interface activeMenu {
+    activeMenu: boolean;
+    setActiveMenu: (activeMenu: boolean) => void;
+};
+
 export interface BreadcrumbItem {
     title: string;
     href: string;
