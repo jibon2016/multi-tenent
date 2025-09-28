@@ -13,3 +13,8 @@ body{
     font-family: "Open Sans", sans-serif;
 }
 
+.bg-main-bg{
+    @apply bg-slate-50
+}
+
+
