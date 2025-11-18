@@ -25,5 +25,24 @@ Route::get('customers', function () {
     return Inertia::render('customers');
 })->name('coustomers');
 
+Route::get('calendar', function () {
+    return Inertia::render('apps/calendar');
+})->name('calendar');
+
+Route::get('kanban', function () {
+    return Inertia::render('apps/kanban');
+})->name('kanban');
+
+Route::get('editor', function () {
+    return Inertia::render('apps/editor');
+})->name('editor');
+
+
+Route::get('color-picker', function () {
+    return Inertia::render('apps/colorPicker');
+})->name('color-picker');
+
+
+
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

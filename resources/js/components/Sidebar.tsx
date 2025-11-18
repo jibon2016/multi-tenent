@@ -6,7 +6,7 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { links } from '@/data/dummy';
 import { useStateContext } from '@/contexts/ContextProvider';
 const Sidebar = () => {
-    const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+    const { activeMenu, setActiveMenu, screenSize, currentColor } = useStateContext();
 
     const handleCloseSidebar = () => {
         if (activeMenu && screenSize && screenSize <= 900) {
@@ -15,8 +15,12 @@ const Sidebar = () => {
     }
 
     const { url } = usePage();
-    const isActive =  (href: {href: string}) =>  url === href;
-    const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2 bg-blue-600';
+    const isActive =  (href: {href: string}) =>  {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        return url === href;
+    };
+    const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg !text-white text-md m-2';
     const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md !text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-gray-100 m-2';
     return (
         <div className="ml-3 h-screen overflow-auto pb-10 md:overflow-hidden md:hover:overflow-auto">
@@ -48,11 +52,12 @@ const Sidebar = () => {
                                     <Link
                                         href={`/${link.name}`}
                                         key={link.name}
+                                        style={{ backgroundColor: isActive('/' + link.name) ? currentColor : '' }}
                                         onClick={handleCloseSidebar}
                                         className={isActive(link.name) ? activeLink : normalLink}
                                     >
                                         {link.icon}
-                                        <span className="capitalize">{link.name}</span>
+                                        <span className={`${ isActive('/' + link.name) ? 'text-white ': ''} capitalize `}>{link.name}</span>
                                     </Link>
                                 ))}
                             </div>
