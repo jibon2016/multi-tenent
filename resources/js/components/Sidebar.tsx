@@ -15,13 +15,12 @@ const Sidebar = () => {
     }
 
     const { url } = usePage();
-    const isActive =  (href: {href: string}) =>  {
+    const isActive = (href: string) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
         return url === href;
     };
-    const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg !text-white text-md m-2';
-    const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md !text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-gray-100 m-2';
+    const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2 dark:text-gray-200';
+    const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:hover:bg-gray-500 dark:hover:text-black hover:bg-gray-100 dark:text-gray-200 m-2';
     return (
         <div className="ml-3 h-screen overflow-auto pb-10 md:overflow-hidden md:hover:overflow-auto">
             {activeMenu && (
@@ -47,17 +46,17 @@ const Sidebar = () => {
                     <div className="mt-10">
                         {links.map((item) => (
                             <div key={item.title}>
-                                <p className="m-3 mt-4 text-gray-400 uppercase">{item.title}</p>
+                                <p className="m-3 mt-4 text-gray-400 dark:text-light-gray uppercase">{item.title}</p>
                                 {item.links.map((link) => (
                                     <Link
                                         href={`/${link.name}`}
                                         key={link.name}
-                                        style={{ backgroundColor: isActive('/' + link.name) ? currentColor : '' }}
+                                        style={{ backgroundColor: isActive(`/${link.name}`) ? currentColor : '' }}
                                         onClick={handleCloseSidebar}
-                                        className={isActive(link.name) ? activeLink : normalLink}
+                                        className={`${isActive(`/${link.name}`) ? activeLink : normalLink} dark:text-light-gray`}
                                     >
                                         {link.icon}
-                                        <span className={`${ isActive('/' + link.name) ? 'text-white ': ''} capitalize `}>{link.name}</span>
+                                        <span className={`${ isActive(`/${link.name}`) ? 'text-white ': ''} capitalize dark:text-light-gray`}>{link.name}</span>
                                     </Link>
                                 ))}
                             </div>

@@ -11,9 +11,9 @@ const ThemeSettings = () => {
 
     return (
         <div className='bg-black/50 w-full fixed nav-item top-0 right-0'>
-            <div className='float-right h-screen dark:text-gray-200 !bg-white dark:bg-[#484B52] w-[400px]'>
+            <div className='float-right h-screen dark:text-light-gray bg-white dark:bg-[#484B52] w-[400px]'>
                 <div className="flex justify-between items-center p-4 ml-4">
-                    <p className="font-semibold text-gray-800 text-lg">Settings</p>
+                    <p className="font-semibold dark:text-light-gray text-gray-800 text-lg">Settings</p>
                     <button
                         type="button"
                         onClick={() => setThemeSettings(false)}
@@ -24,7 +24,7 @@ const ThemeSettings = () => {
                     </button>
                 </div>
                 <div className="flex flex-col border-t-1 border-color p-4 ml-4">
-                    <p className="font-semibold text-gray-800 text-lg">Theme Options</p>
+                    <p className="font-semibold text-gray-800 dark:text-light-gray text-lg">Theme Options</p>
                     <div className="mt-4">
                         <input
                             type="radio"
@@ -35,7 +35,7 @@ const ThemeSettings = () => {
                             onChange={setMode}
                             checked={currentMode === 'Light'}
                         />
-                        <label htmlFor="light" className="ml-2 text-md text-gray-800 cursor-pointer">Light</label>
+                        <label htmlFor="light" className="ml-2 text-md dark:text-light-gray text-gray-800 cursor-pointer">Light</label>
                     </div>
                     <div className="mt-4">
                         <input
@@ -47,7 +47,7 @@ const ThemeSettings = () => {
                             onChange={setMode}
                             checked={currentMode === 'Dark'}
                         />
-                        <label htmlFor="dark" className="ml-2 text-md text-gray-800 cursor-pointer">Dark</label>
+                        <label htmlFor="dark" className="ml-2 text-md  dark:text-light-gray text-gray-800 cursor-pointer">Dark</label>
                     </div>
                     <div className="mt-4">
                         <input
@@ -59,11 +59,11 @@ const ThemeSettings = () => {
                             onChange={setMode}
                             checked={currentMode === 'System'}
                         />
-                        <label htmlFor="system" className="ml-2 text-md text-gray-800 cursor-pointer">System</label>
+                        <label htmlFor="system" className="ml-2 text-md  dark:text-light-gray text-gray-800 cursor-pointer">System</label>
                     </div>
                 </div>
                 <div className="flex flex-col border-t-1 border-color p-4 ml-4">
-                    <p className="font-semibold text-gray-800 text-lg">Theme Colors</p>
+                    <p className="font-semibold  dark:text-light-gray text-gray-800 text-lg">Theme Colors</p>
                     <div className="flex gap-3">
                         {themeColors.map((item, index) => (
                             <TooltipComponent

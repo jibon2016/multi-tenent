@@ -1,11 +1,10 @@
 @import 'tailwindcss';
-
+@custom-variant dark (&:where(.dark, .dark *));
 @plugin 'tailwindcss-animate';
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 
 body{
     margin: 0;
@@ -13,14 +12,12 @@ body{
     font-family: "Open Sans", sans-serif;
 }
 
-/*.bg-main-bg{*/
-/*    @apply bg-slate-50*/
-/*}*/
+
 
 @theme{
-    --color-main-bg: '#FAFBFB';
-    --color-main-dark-bg: '#20232A';
-    --color-secondary-dark-bg: '#33373E';
-    --color-light-gray: '#F7F7F7';
+    --color-main-bg: #FAFBFB;
+    --color-main-dark-bg: #20232A;
+    --color-secondary-dark-bg: #33373E;
+    --color-light-gray: #F7F7F7;
 }
 

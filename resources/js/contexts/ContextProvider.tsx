@@ -1,6 +1,5 @@
 import React, {createContext, useContext,useState } from 'react';
-import { applyTheme } from '@/hooks/use-appearance';
-
+import { useAppearance } from '@/hooks/use-appearance';
 export interface StateContextType {
     currentColor: string;
     setCurrentColor: React.Dispatch<React.SetStateAction<string>>;
@@ -40,13 +39,12 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
     const [activeMenu, setActiveMenu] =  useState(true);
     const [screenSize, setScreenSize] = useState(0);
     const [currentColor, setCurrentColor] = useState('#03C9D7');
-    const [currentMode, setCurrentMode] = useState('');
+    const [currentMode, setCurrentMode] = useState('System');
     const [themeSettings, setThemeSettings] = useState(false);
-
+    const {updateAppearance } = useAppearance();
     const setMode = (e: React.ChangeEvent<HTMLInputElement>) => {
-        applyTheme(e.target.value.toLowerCase() as 'light' | 'dark' | 'system');
+        updateAppearance(e.target.value.toLowerCase() as 'light' | 'dark' | 'system');
         setCurrentMode(e.target.value);
-        // localStorage.setItem('themeMode', e.target.value);
         setThemeSettings(false);
     };
 

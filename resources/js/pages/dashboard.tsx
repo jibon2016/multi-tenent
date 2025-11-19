@@ -15,7 +15,7 @@ const Dashboard = () => {
                         <div className="flex justify-between items-center">
                             <div>
                                 <p className="font-bold text-gray-400">Earnings</p>
-                                <p className="text-2xl text-gray-900 dark:text-gray-200 ">$63,448.78</p>
+                                <p className="text-2xl text-gray-800 dark:text-light-gray ">$63,448.78</p>
                             </div>
                         </div>
                         <div className="mt-6">
@@ -40,7 +40,7 @@ const Dashboard = () => {
                                     className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl"
                                 >{item.icon}</button>
                                 <p className="mt-3">
-                                    <span className="text-lg  text-gray-800 dark:text-light-gray font-semibold">{item.amount}</span>
+                                    <span className="text-lg text-gray-800 dark:text-light-gray font-semibold">{item.amount}</span>
                                     <span className={`text-sm text-${item.pcColor} ml-2`}>{item.percentage}</span>
                                 </p>
                                 <p className="text-sm text-gray-400 mt-1">{item.title}

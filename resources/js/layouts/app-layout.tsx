@@ -1,12 +1,13 @@
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { FiSettings } from 'react-icons/fi';
 import { Navbar,  Sidebar } from '../components';
-import {useStateContext} from '../contexts/ContextProvider';
+import {useStateContext} from '@/contexts/ContextProvider';
 import { ThemeSettings } from '@/components';
+import React from 'react';
 
 const  AppLayout = ({children}:{children:React.ReactNode})=> {
 
-    const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } = useStateContext();
+    const { activeMenu, themeSettings, setThemeSettings, currentColor } = useStateContext();
 
     return (
         <div>
@@ -34,10 +35,10 @@ const  AppLayout = ({children}:{children:React.ReactNode})=> {
                 )}
                 <div className={
                     activeMenu
-                        ? 'dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full overflow-x-hidden '
-                        : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 overflow-x-hidden '
+                        ? 'dark:bg-main-dark-bg  bg-main-bg min-h-screen w-full overflow-x-hidden md:ml-72 '
+                        : ' dark:bg-main-dark-bg bg-main-bg min-h-screen w-full overflow-x-hidden flex-2 '
                      }>
-                    <div className="fixed md:static bg-main-bg dark:bg-secondary-dark-bg navbar w-full ">
+                    <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
                         <Navbar />
                     </div>
                     <div>
