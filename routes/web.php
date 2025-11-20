@@ -42,6 +42,15 @@ Route::get('color-picker', function () {
     return Inertia::render('apps/colorPicker');
 })->name('color-picker');
 
+Route::get('line', function () {
+    return Inertia::render('charts/line');
+})->name('line');
+
+Route::get('area', function () {
+    return Inertia::render('charts/area');
+})->name('area');
+
+
 
 
 require __DIR__.'/settings.php';
